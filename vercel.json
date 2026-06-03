@@ -1,6 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npm run vercel-build",
+  "protection": {
+    "deploymentType": "none"
+  },
   "crons": [
     {
       "path": "/api/cron/send-reminders",
