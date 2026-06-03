@@ -1,0 +1,1322 @@
+[
+  {
+    "id": "cmnixsmmy0000117y8me8c3lk",
+    "meetingKey": 1279,
+    "name": "Australian Grand Prix",
+    "officialName": "FORMULA 1 QATAR AIRWAYS AUSTRALIAN GRAND PRIX 2026",
+    "location": "Melbourne",
+    "countryCode": "AUS",
+    "countryName": "Australia",
+    "countryFlag": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/australia-flag.png",
+    "circuitKey": 10,
+    "circuitShortName": "Melbourne",
+    "circuitType": "Temporary - Street",
+    "circuitImage": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Australia%20carbon.png",
+    "gmtOffset": "11:00:00",
+    "startDate": "2026-03-06T01:30:00.000Z",
+    "endDate": "2026-03-08T06:00:00.000Z",
+    "year": 2026,
+    "sessions": [
+      {
+        "id": "cmnjjrkfd000gnjj5kxk6iwpb",
+        "meetingId": "cmnixsmmy0000117y8me8c3lk",
+        "meetingName": "Australian Grand Prix",
+        "type": "Practice",
+        "name": "Practice 1",
+        "startTime": "2026-03-06T01:30:00.000Z"
+      },
+      {
+        "id": "cmnjjrkfk000injj5zo5egsjs",
+        "meetingId": "cmnixsmmy0000117y8me8c3lk",
+        "meetingName": "Australian Grand Prix",
+        "type": "Practice",
+        "name": "Practice 2",
+        "startTime": "2026-03-06T05:00:00.000Z"
+      },
+      {
+        "id": "cmnjjrkfp000knjj550wucp4n",
+        "meetingId": "cmnixsmmy0000117y8me8c3lk",
+        "meetingName": "Australian Grand Prix",
+        "type": "Practice",
+        "name": "Practice 3",
+        "startTime": "2026-03-07T01:30:00.000Z"
+      },
+      {
+        "id": "cmnjjrkfv000mnjj5ssahpbl5",
+        "meetingId": "cmnixsmmy0000117y8me8c3lk",
+        "meetingName": "Australian Grand Prix",
+        "type": "Qualifying",
+        "name": "Qualifying",
+        "startTime": "2026-03-07T05:00:00.000Z"
+      },
+      {
+        "id": "cmnjjrkg1000onjj53o0k1x36",
+        "meetingId": "cmnixsmmy0000117y8me8c3lk",
+        "meetingName": "Australian Grand Prix",
+        "type": "Race",
+        "name": "Race",
+        "startTime": "2026-03-08T04:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "cmnjj45hs000fns1w3gnajv8x",
+    "meetingKey": 1280,
+    "name": "Chinese Grand Prix",
+    "officialName": "FORMULA 1 HEINEKEN CHINESE GRAND PRIX 2026",
+    "location": "Shanghai",
+    "countryCode": "CHN",
+    "countryName": "China",
+    "countryFlag": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/china-flag.png",
+    "circuitKey": 49,
+    "circuitShortName": "Shanghai",
+    "circuitType": "Permanent",
+    "circuitImage": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/China%20carbon.png",
+    "gmtOffset": "08:00:00",
+    "startDate": "2026-03-13T03:30:00.000Z",
+    "endDate": "2026-03-15T09:00:00.000Z",
+    "year": 2026,
+    "sessions": [
+      {
+        "id": "cmnjjrlan000rnjj58ldsiasb",
+        "meetingId": "cmnjj45hs000fns1w3gnajv8x",
+        "meetingName": "Chinese Grand Prix",
+        "type": "Practice",
+        "name": "Practice 1",
+        "startTime": "2026-03-13T03:30:00.000Z"
+      },
+      {
+        "id": "cmnjjrlar000tnjj53ofg6ea2",
+        "meetingId": "cmnjj45hs000fns1w3gnajv8x",
+        "meetingName": "Chinese Grand Prix",
+        "type": "Qualifying",
+        "name": "Sprint Qualifying",
+        "startTime": "2026-03-13T07:30:00.000Z"
+      },
+      {
+        "id": "cmnjjrlb4000xnjj5dywc7w5a",
+        "meetingId": "cmnjj45hs000fns1w3gnajv8x",
+        "meetingName": "Chinese Grand Prix",
+        "type": "Qualifying",
+        "name": "Qualifying",
+        "startTime": "2026-03-14T07:00:00.000Z"
+      },
+      {
+        "id": "cmnjjrlay000vnjj5pnjtpeuu",
+        "meetingId": "cmnjj45hs000fns1w3gnajv8x",
+        "meetingName": "Chinese Grand Prix",
+        "type": "Race",
+        "name": "Sprint",
+        "startTime": "2026-03-14T03:00:00.000Z"
+      },
+      {
+        "id": "cmnjjrlba000znjj5739grtiy",
+        "meetingId": "cmnjj45hs000fns1w3gnajv8x",
+        "meetingName": "Chinese Grand Prix",
+        "type": "Race",
+        "name": "Race",
+        "startTime": "2026-03-15T07:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "cmnjj45iz000gns1wmg085q0s",
+    "meetingKey": 1281,
+    "name": "Japanese Grand Prix",
+    "officialName": "FORMULA 1 ARAMCO JAPANESE GRAND PRIX 2026",
+    "location": "Suzuka",
+    "countryCode": "JPN",
+    "countryName": "Japan",
+    "countryFlag": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/japan-flag.png",
+    "circuitKey": 46,
+    "circuitShortName": "Suzuka",
+    "circuitType": "Permanent",
+    "circuitImage": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Japan%20carbon.png",
+    "gmtOffset": "09:00:00",
+    "startDate": "2026-03-27T02:30:00.000Z",
+    "endDate": "2026-03-29T07:00:00.000Z",
+    "year": 2026,
+    "sessions": [
+      {
+        "id": "cmnjjrm640012njj5mtz0g0vy",
+        "meetingId": "cmnjj45iz000gns1wmg085q0s",
+        "meetingName": "Japanese Grand Prix",
+        "type": "Practice",
+        "name": "Practice 1",
+        "startTime": "2026-03-27T02:30:00.000Z"
+      },
+      {
+        "id": "cmnjjrm6f0014njj5cox023lz",
+        "meetingId": "cmnjj45iz000gns1wmg085q0s",
+        "meetingName": "Japanese Grand Prix",
+        "type": "Practice",
+        "name": "Practice 2",
+        "startTime": "2026-03-27T06:00:00.000Z"
+      },
+      {
+        "id": "cmnjjrm6k0016njj5nlx6rwa9",
+        "meetingId": "cmnjj45iz000gns1wmg085q0s",
+        "meetingName": "Japanese Grand Prix",
+        "type": "Practice",
+        "name": "Practice 3",
+        "startTime": "2026-03-28T02:30:00.000Z"
+      },
+      {
+        "id": "cmnjjrm6s0018njj5lwujzzlw",
+        "meetingId": "cmnjj45iz000gns1wmg085q0s",
+        "meetingName": "Japanese Grand Prix",
+        "type": "Qualifying",
+        "name": "Qualifying",
+        "startTime": "2026-03-28T06:00:00.000Z"
+      },
+      {
+        "id": "cmnjjrm6x001anjj59jxtsjab",
+        "meetingId": "cmnjj45iz000gns1wmg085q0s",
+        "meetingName": "Japanese Grand Prix",
+        "type": "Race",
+        "name": "Race",
+        "startTime": "2026-03-29T05:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "cmnjj45mj000jns1wko5ddfcr",
+    "meetingKey": 1284,
+    "name": "Miami Grand Prix",
+    "officialName": "FORMULA 1 CRYPTO.COM MIAMI GRAND PRIX 2026",
+    "location": "Miami Gardens",
+    "countryCode": "USA",
+    "countryName": "United States",
+    "countryFlag": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/united-states-flag.png",
+    "circuitKey": 151,
+    "circuitShortName": "Miami",
+    "circuitType": "Temporary - Street",
+    "circuitImage": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Miami%20carbon.png",
+    "gmtOffset": "-04:00:00",
+    "startDate": "2026-05-01T16:30:00.000Z",
+    "endDate": "2026-05-03T22:00:00.000Z",
+    "year": 2026,
+    "sessions": [
+      {
+        "id": "cmnjjros5001znjj5r0e51ejl",
+        "meetingId": "cmnjj45mj000jns1wko5ddfcr",
+        "meetingName": "Miami Grand Prix",
+        "type": "Practice",
+        "name": "Practice 1",
+        "startTime": "2026-05-01T16:30:00.000Z"
+      },
+      {
+        "id": "cmnjjrosb0021njj5iu2wsjh7",
+        "meetingId": "cmnjj45mj000jns1wko5ddfcr",
+        "meetingName": "Miami Grand Prix",
+        "type": "Qualifying",
+        "name": "Sprint Qualifying",
+        "startTime": "2026-05-01T20:30:00.000Z"
+      },
+      {
+        "id": "cmnjjrosn0025njj54z5tekrp",
+        "meetingId": "cmnjj45mj000jns1wko5ddfcr",
+        "meetingName": "Miami Grand Prix",
+        "type": "Qualifying",
+        "name": "Qualifying",
+        "startTime": "2026-05-02T20:00:00.000Z"
+      },
+      {
+        "id": "cmnjjrosh0023njj51cigcrp5",
+        "meetingId": "cmnjj45mj000jns1wko5ddfcr",
+        "meetingName": "Miami Grand Prix",
+        "type": "Race",
+        "name": "Sprint",
+        "startTime": "2026-05-02T16:00:00.000Z"
+      },
+      {
+        "id": "cmnjjross0027njj5cr8hnl68",
+        "meetingId": "cmnjj45mj000jns1wko5ddfcr",
+        "meetingName": "Miami Grand Prix",
+        "type": "Race",
+        "name": "Race",
+        "startTime": "2026-05-03T20:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "cmnjj45no000kns1w34v79573",
+    "meetingKey": 1285,
+    "name": "Canadian Grand Prix",
+    "officialName": "FORMULA 1 LENOVO GRAND PRIX DU CANADA 2026",
+    "location": "Montréal",
+    "countryCode": "CAN",
+    "countryName": "Canada",
+    "countryFlag": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/canada-flag.png",
+    "circuitKey": 23,
+    "circuitShortName": "Montreal",
+    "circuitType": "Permanent",
+    "circuitImage": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Canada%20carbon.png",
+    "gmtOffset": "-04:00:00",
+    "startDate": "2026-05-22T16:30:00.000Z",
+    "endDate": "2026-05-24T22:00:00.000Z",
+    "year": 2026,
+    "sessions": [
+      {
+        "id": "cmnjjrpn5002anjj5x4ws2o9g",
+        "meetingId": "cmnjj45no000kns1w34v79573",
+        "meetingName": "Canadian Grand Prix",
+        "type": "Practice",
+        "name": "Practice 1",
+        "startTime": "2026-05-22T16:30:00.000Z"
+      },
+      {
+        "id": "cmnjjrpnc002cnjj5vx423usd",
+        "meetingId": "cmnjj45no000kns1w34v79573",
+        "meetingName": "Canadian Grand Prix",
+        "type": "Qualifying",
+        "name": "Sprint Qualifying",
+        "startTime": "2026-05-22T20:30:00.000Z"
+      },
+      {
+        "id": "cmnjjrpno002gnjj5x74sjbkx",
+        "meetingId": "cmnjj45no000kns1w34v79573",
+        "meetingName": "Canadian Grand Prix",
+        "type": "Qualifying",
+        "name": "Qualifying",
+        "startTime": "2026-05-23T20:00:00.000Z"
+      },
+      {
+        "id": "cmnjjrpnh002enjj55z0jv8zy",
+        "meetingId": "cmnjj45no000kns1w34v79573",
+        "meetingName": "Canadian Grand Prix",
+        "type": "Race",
+        "name": "Sprint",
+        "startTime": "2026-05-23T16:00:00.000Z"
+      },
+      {
+        "id": "cmnjjrpnt002injj5f3kujb7q",
+        "meetingId": "cmnjj45no000kns1w34v79573",
+        "meetingName": "Canadian Grand Prix",
+        "type": "Race",
+        "name": "Race",
+        "startTime": "2026-05-24T20:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "cmnjj45ou000lns1wmwugasrn",
+    "meetingKey": 1286,
+    "name": "Monaco Grand Prix",
+    "officialName": "FORMULA 1 LOUIS VUITTON GRAND PRIX DE MONACO 2026",
+    "location": "Monte Carlo",
+    "countryCode": "MON",
+    "countryName": "Monaco",
+    "countryFlag": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/monaco-flag.png",
+    "circuitKey": 22,
+    "circuitShortName": "Monte Carlo",
+    "circuitType": "Temporary - Street",
+    "circuitImage": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Monaco%20carbon.png",
+    "gmtOffset": "02:00:00",
+    "startDate": "2026-06-05T11:30:00.000Z",
+    "endDate": "2026-06-07T15:00:00.000Z",
+    "year": 2026,
+    "sessions": [
+      {
+        "id": "cmnjjrqid002lnjj5p9lfjqy6",
+        "meetingId": "cmnjj45ou000lns1wmwugasrn",
+        "meetingName": "Monaco Grand Prix",
+        "type": "Practice",
+        "name": "Practice 1",
+        "startTime": "2026-06-05T11:30:00.000Z"
+      },
+      {
+        "id": "cmnjjrqik002nnjj5qiu12wpc",
+        "meetingId": "cmnjj45ou000lns1wmwugasrn",
+        "meetingName": "Monaco Grand Prix",
+        "type": "Practice",
+        "name": "Practice 2",
+        "startTime": "2026-06-05T15:00:00.000Z"
+      },
+      {
+        "id": "cmnjjrqir002pnjj51g4fiz2u",
+        "meetingId": "cmnjj45ou000lns1wmwugasrn",
+        "meetingName": "Monaco Grand Prix",
+        "type": "Practice",
+        "name": "Practice 3",
+        "startTime": "2026-06-06T10:30:00.000Z"
+      },
+      {
+        "id": "cmnjjrqix002rnjj5iy1fv7rb",
+        "meetingId": "cmnjj45ou000lns1wmwugasrn",
+        "meetingName": "Monaco Grand Prix",
+        "type": "Qualifying",
+        "name": "Qualifying",
+        "startTime": "2026-06-06T14:00:00.000Z"
+      },
+      {
+        "id": "cmnjjrqj3002tnjj5eon6ogi2",
+        "meetingId": "cmnjj45ou000lns1wmwugasrn",
+        "meetingName": "Monaco Grand Prix",
+        "type": "Race",
+        "name": "Race",
+        "startTime": "2026-06-07T13:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "cmnjj45q0000mns1wepjwvak4",
+    "meetingKey": 1287,
+    "name": "Barcelona Grand Prix",
+    "officialName": "FORMULA 1 MSC CRUISES GRAN PREMIO DE BARCELONA-CATALUNYA 2026",
+    "location": "Barcelona",
+    "countryCode": "ESP",
+    "countryName": "Spain",
+    "countryFlag": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/spain-flag.png",
+    "circuitKey": 15,
+    "circuitShortName": "Catalunya",
+    "circuitType": "Permanent",
+    "circuitImage": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Barcelona-Catalunya%20carbon.png",
+    "gmtOffset": "02:00:00",
+    "startDate": "2026-06-12T11:30:00.000Z",
+    "endDate": "2026-06-14T15:00:00.000Z",
+    "year": 2026,
+    "sessions": [
+      {
+        "id": "cmnjjrrde002wnjj5760a92z3",
+        "meetingId": "cmnjj45q0000mns1wepjwvak4",
+        "meetingName": "Barcelona Grand Prix",
+        "type": "Practice",
+        "name": "Practice 1",
+        "startTime": "2026-06-12T11:30:00.000Z"
+      },
+      {
+        "id": "cmnjjrrdk002ynjj5163byou0",
+        "meetingId": "cmnjj45q0000mns1wepjwvak4",
+        "meetingName": "Barcelona Grand Prix",
+        "type": "Practice",
+        "name": "Practice 2",
+        "startTime": "2026-06-12T15:00:00.000Z"
+      },
+      {
+        "id": "cmnjjrrdq0030njj5svh3sriy",
+        "meetingId": "cmnjj45q0000mns1wepjwvak4",
+        "meetingName": "Barcelona Grand Prix",
+        "type": "Practice",
+        "name": "Practice 3",
+        "startTime": "2026-06-13T10:30:00.000Z"
+      },
+      {
+        "id": "cmnjjrrdw0032njj5uxex2ag8",
+        "meetingId": "cmnjj45q0000mns1wepjwvak4",
+        "meetingName": "Barcelona Grand Prix",
+        "type": "Qualifying",
+        "name": "Qualifying",
+        "startTime": "2026-06-13T14:00:00.000Z"
+      },
+      {
+        "id": "cmnjjrre20034njj59yg0rv77",
+        "meetingId": "cmnjj45q0000mns1wepjwvak4",
+        "meetingName": "Barcelona Grand Prix",
+        "type": "Race",
+        "name": "Race",
+        "startTime": "2026-06-14T13:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "cmnjj45r6000nns1wwhg1vnl8",
+    "meetingKey": 1288,
+    "name": "Austrian Grand Prix",
+    "officialName": "FORMULA 1 LENOVO AUSTRIAN GRAND PRIX 2026",
+    "location": "Spielberg",
+    "countryCode": "AUT",
+    "countryName": "Austria",
+    "countryFlag": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/austria-flag.png",
+    "circuitKey": 19,
+    "circuitShortName": "Spielberg",
+    "circuitType": "Permanent",
+    "circuitImage": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Austria%20carbon.png",
+    "gmtOffset": "02:00:00",
+    "startDate": "2026-06-26T11:30:00.000Z",
+    "endDate": "2026-06-28T15:00:00.000Z",
+    "year": 2026,
+    "sessions": [
+      {
+        "id": "cmnjjrs8w0037njj5vo9frztm",
+        "meetingId": "cmnjj45r6000nns1wwhg1vnl8",
+        "meetingName": "Austrian Grand Prix",
+        "type": "Practice",
+        "name": "Practice 1",
+        "startTime": "2026-06-26T11:30:00.000Z"
+      },
+      {
+        "id": "cmnjjrs950039njj5k7u495j6",
+        "meetingId": "cmnjj45r6000nns1wwhg1vnl8",
+        "meetingName": "Austrian Grand Prix",
+        "type": "Practice",
+        "name": "Practice 2",
+        "startTime": "2026-06-26T15:00:00.000Z"
+      },
+      {
+        "id": "cmnjjrs9e003bnjj5wtz8m0k6",
+        "meetingId": "cmnjj45r6000nns1wwhg1vnl8",
+        "meetingName": "Austrian Grand Prix",
+        "type": "Practice",
+        "name": "Practice 3",
+        "startTime": "2026-06-27T10:30:00.000Z"
+      },
+      {
+        "id": "cmnjjrs9k003dnjj5vi37kejd",
+        "meetingId": "cmnjj45r6000nns1wwhg1vnl8",
+        "meetingName": "Austrian Grand Prix",
+        "type": "Qualifying",
+        "name": "Qualifying",
+        "startTime": "2026-06-27T14:00:00.000Z"
+      },
+      {
+        "id": "cmnjjrs9r003fnjj52whlogwg",
+        "meetingId": "cmnjj45r6000nns1wwhg1vnl8",
+        "meetingName": "Austrian Grand Prix",
+        "type": "Race",
+        "name": "Race",
+        "startTime": "2026-06-28T13:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "cmnjj45sd000ons1w9mxj4iur",
+    "meetingKey": 1289,
+    "name": "British Grand Prix",
+    "officialName": "FORMULA 1 PIRELLI BRITISH GRAND PRIX 2026",
+    "location": "Silverstone",
+    "countryCode": "GBR",
+    "countryName": "United Kingdom",
+    "countryFlag": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/united-kingdom-flag.png",
+    "circuitKey": 2,
+    "circuitShortName": "Silverstone",
+    "circuitType": "Permanent",
+    "circuitImage": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Great Britain%20carbon.png",
+    "gmtOffset": "01:00:00",
+    "startDate": "2026-07-03T11:30:00.000Z",
+    "endDate": "2026-07-05T16:00:00.000Z",
+    "year": 2026,
+    "sessions": [
+      {
+        "id": "cmnjjrt4j003injj5r6rvpvii",
+        "meetingId": "cmnjj45sd000ons1w9mxj4iur",
+        "meetingName": "British Grand Prix",
+        "type": "Practice",
+        "name": "Practice 1",
+        "startTime": "2026-07-03T11:30:00.000Z"
+      },
+      {
+        "id": "cmnjjrt4t003knjj5uitbji08",
+        "meetingId": "cmnjj45sd000ons1w9mxj4iur",
+        "meetingName": "British Grand Prix",
+        "type": "Qualifying",
+        "name": "Sprint Qualifying",
+        "startTime": "2026-07-03T15:30:00.000Z"
+      },
+      {
+        "id": "cmnjjrt56003onjj5mkogf6h5",
+        "meetingId": "cmnjj45sd000ons1w9mxj4iur",
+        "meetingName": "British Grand Prix",
+        "type": "Qualifying",
+        "name": "Qualifying",
+        "startTime": "2026-07-04T15:00:00.000Z"
+      },
+      {
+        "id": "cmnjjrt50003mnjj5xb7rfzsn",
+        "meetingId": "cmnjj45sd000ons1w9mxj4iur",
+        "meetingName": "British Grand Prix",
+        "type": "Race",
+        "name": "Sprint",
+        "startTime": "2026-07-04T11:00:00.000Z"
+      },
+      {
+        "id": "cmnjjrt5g003qnjj57hb9siia",
+        "meetingId": "cmnjj45sd000ons1w9mxj4iur",
+        "meetingName": "British Grand Prix",
+        "type": "Race",
+        "name": "Race",
+        "startTime": "2026-07-05T14:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "cmnjj45tj000pns1weaelrghc",
+    "meetingKey": 1290,
+    "name": "Belgian Grand Prix",
+    "officialName": "FORMULA 1 MOËT & CHANDON BELGIAN GRAND PRIX 2026",
+    "location": "Spa-Francorchamps",
+    "countryCode": "BEL",
+    "countryName": "Belgium",
+    "countryFlag": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/belgium-flag.png",
+    "circuitKey": 7,
+    "circuitShortName": "Spa-Francorchamps",
+    "circuitType": "Temporary - Road",
+    "circuitImage": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Belgium%20carbon.png",
+    "gmtOffset": "02:00:00",
+    "startDate": "2026-07-17T11:30:00.000Z",
+    "endDate": "2026-07-19T15:00:00.000Z",
+    "year": 2026,
+    "sessions": [
+      {
+        "id": "cmnjjrtzw003tnjj5n4h4x2xe",
+        "meetingId": "cmnjj45tj000pns1weaelrghc",
+        "meetingName": "Belgian Grand Prix",
+        "type": "Practice",
+        "name": "Practice 1",
+        "startTime": "2026-07-17T11:30:00.000Z"
+      },
+      {
+        "id": "cmnjjru05003vnjj56x0v0er8",
+        "meetingId": "cmnjj45tj000pns1weaelrghc",
+        "meetingName": "Belgian Grand Prix",
+        "type": "Practice",
+        "name": "Practice 2",
+        "startTime": "2026-07-17T15:00:00.000Z"
+      },
+      {
+        "id": "cmnjjru0e003xnjj5977gnfp1",
+        "meetingId": "cmnjj45tj000pns1weaelrghc",
+        "meetingName": "Belgian Grand Prix",
+        "type": "Practice",
+        "name": "Practice 3",
+        "startTime": "2026-07-18T10:30:00.000Z"
+      },
+      {
+        "id": "cmnjjru0k003znjj5uhqyh8z4",
+        "meetingId": "cmnjj45tj000pns1weaelrghc",
+        "meetingName": "Belgian Grand Prix",
+        "type": "Qualifying",
+        "name": "Qualifying",
+        "startTime": "2026-07-18T14:00:00.000Z"
+      },
+      {
+        "id": "cmnjjru0p0041njj5d1kqs3dj",
+        "meetingId": "cmnjj45tj000pns1weaelrghc",
+        "meetingName": "Belgian Grand Prix",
+        "type": "Race",
+        "name": "Race",
+        "startTime": "2026-07-19T13:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "cmnjj45uo000qns1wzvvjszbf",
+    "meetingKey": 1291,
+    "name": "Hungarian Grand Prix",
+    "officialName": "FORMULA 1 AWS HUNGARIAN GRAND PRIX 2026",
+    "location": "Budapest",
+    "countryCode": "HUN",
+    "countryName": "Hungary",
+    "countryFlag": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/hungary-flag.png",
+    "circuitKey": 4,
+    "circuitShortName": "Hungaroring",
+    "circuitType": "Permanent",
+    "circuitImage": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Hungary%20carbon.png",
+    "gmtOffset": "02:00:00",
+    "startDate": "2026-07-24T11:30:00.000Z",
+    "endDate": "2026-07-26T15:00:00.000Z",
+    "year": 2026,
+    "sessions": [
+      {
+        "id": "cmnjjruv30044njj5f1wv0z1d",
+        "meetingId": "cmnjj45uo000qns1wzvvjszbf",
+        "meetingName": "Hungarian Grand Prix",
+        "type": "Practice",
+        "name": "Practice 1",
+        "startTime": "2026-07-24T11:30:00.000Z"
+      },
+      {
+        "id": "cmnjjruve0046njj5l77maulg",
+        "meetingId": "cmnjj45uo000qns1wzvvjszbf",
+        "meetingName": "Hungarian Grand Prix",
+        "type": "Practice",
+        "name": "Practice 2",
+        "startTime": "2026-07-24T15:00:00.000Z"
+      },
+      {
+        "id": "cmnjjruvo0048njj5u4npphct",
+        "meetingId": "cmnjj45uo000qns1wzvvjszbf",
+        "meetingName": "Hungarian Grand Prix",
+        "type": "Practice",
+        "name": "Practice 3",
+        "startTime": "2026-07-25T10:30:00.000Z"
+      },
+      {
+        "id": "cmnjjruvu004anjj5tz0i1nmi",
+        "meetingId": "cmnjj45uo000qns1wzvvjszbf",
+        "meetingName": "Hungarian Grand Prix",
+        "type": "Qualifying",
+        "name": "Qualifying",
+        "startTime": "2026-07-25T14:00:00.000Z"
+      },
+      {
+        "id": "cmnjjruvz004cnjj5c5nx2wlv",
+        "meetingId": "cmnjj45uo000qns1wzvvjszbf",
+        "meetingName": "Hungarian Grand Prix",
+        "type": "Race",
+        "name": "Race",
+        "startTime": "2026-07-26T13:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "cmnjj45vu000rns1weohzs7lb",
+    "meetingKey": 1292,
+    "name": "Dutch Grand Prix",
+    "officialName": "FORMULA 1 HEINEKEN DUTCH GRAND PRIX 2026",
+    "location": "Zandvoort",
+    "countryCode": "NED",
+    "countryName": "Netherlands",
+    "countryFlag": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/netherlands-flag.png",
+    "circuitKey": 55,
+    "circuitShortName": "Zandvoort",
+    "circuitType": "Permanent",
+    "circuitImage": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Netherlands%20carbon.png",
+    "gmtOffset": "02:00:00",
+    "startDate": "2026-08-21T10:30:00.000Z",
+    "endDate": "2026-08-23T15:00:00.000Z",
+    "year": 2026,
+    "sessions": [
+      {
+        "id": "cmnjjrvqm004fnjj5dq4uz5a0",
+        "meetingId": "cmnjj45vu000rns1weohzs7lb",
+        "meetingName": "Dutch Grand Prix",
+        "type": "Practice",
+        "name": "Practice 1",
+        "startTime": "2026-08-21T10:30:00.000Z"
+      },
+      {
+        "id": "cmnjjrvr0004hnjj5nm4238pa",
+        "meetingId": "cmnjj45vu000rns1weohzs7lb",
+        "meetingName": "Dutch Grand Prix",
+        "type": "Qualifying",
+        "name": "Sprint Qualifying",
+        "startTime": "2026-08-21T14:30:00.000Z"
+      },
+      {
+        "id": "cmnjjrvrd004lnjj5pkvu2d94",
+        "meetingId": "cmnjj45vu000rns1weohzs7lb",
+        "meetingName": "Dutch Grand Prix",
+        "type": "Qualifying",
+        "name": "Qualifying",
+        "startTime": "2026-08-22T14:00:00.000Z"
+      },
+      {
+        "id": "cmnjjrvr7004jnjj5bnjzgxt9",
+        "meetingId": "cmnjj45vu000rns1weohzs7lb",
+        "meetingName": "Dutch Grand Prix",
+        "type": "Race",
+        "name": "Sprint",
+        "startTime": "2026-08-22T10:00:00.000Z"
+      },
+      {
+        "id": "cmnjjrvrk004nnjj5rswgtm8o",
+        "meetingId": "cmnjj45vu000rns1weohzs7lb",
+        "meetingName": "Dutch Grand Prix",
+        "type": "Race",
+        "name": "Race",
+        "startTime": "2026-08-23T13:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "cmnjj45x7000sns1wmo7bwump",
+    "meetingKey": 1293,
+    "name": "Italian Grand Prix",
+    "officialName": "FORMULA 1 PIRELLI GRAN PREMIO D’ITALIA 2026",
+    "location": "Monza",
+    "countryCode": "ITA",
+    "countryName": "Italy",
+    "countryFlag": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/italy-flag.png",
+    "circuitKey": 39,
+    "circuitShortName": "Monza",
+    "circuitType": "Permanent",
+    "circuitImage": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Italy%20carbon.png",
+    "gmtOffset": "02:00:00",
+    "startDate": "2026-09-04T10:30:00.000Z",
+    "endDate": "2026-09-06T15:00:00.000Z",
+    "year": 2026,
+    "sessions": [
+      {
+        "id": "cmnjjfyd3000uciylm0otolxu",
+        "meetingId": "cmnjj45x7000sns1wmo7bwump",
+        "meetingName": "Italian Grand Prix",
+        "type": "Practice",
+        "name": "Practice 1",
+        "startTime": "2026-09-04T10:30:00.000Z"
+      },
+      {
+        "id": "cmnjjfyd9000wciylvz1b0we9",
+        "meetingId": "cmnjj45x7000sns1wmo7bwump",
+        "meetingName": "Italian Grand Prix",
+        "type": "Practice",
+        "name": "Practice 2",
+        "startTime": "2026-09-04T14:00:00.000Z"
+      },
+      {
+        "id": "cmnjjfydf000yciyleknkzvw4",
+        "meetingId": "cmnjj45x7000sns1wmo7bwump",
+        "meetingName": "Italian Grand Prix",
+        "type": "Practice",
+        "name": "Practice 3",
+        "startTime": "2026-09-05T10:30:00.000Z"
+      },
+      {
+        "id": "cmnjjfydk0010ciylhfq12pc9",
+        "meetingId": "cmnjj45x7000sns1wmo7bwump",
+        "meetingName": "Italian Grand Prix",
+        "type": "Qualifying",
+        "name": "Qualifying",
+        "startTime": "2026-09-05T14:00:00.000Z"
+      },
+      {
+        "id": "cmnjjfydq0012ciylqyia6c6n",
+        "meetingId": "cmnjj45x7000sns1wmo7bwump",
+        "meetingName": "Italian Grand Prix",
+        "type": "Race",
+        "name": "Race",
+        "startTime": "2026-09-06T13:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "cmnjj45yd000tns1waog3den4",
+    "meetingKey": 1294,
+    "name": "Spanish Grand Prix",
+    "officialName": "FORMULA 1 TAG HEUER GRAN PREMIO DE ESPAÑA 2026",
+    "location": "Madrid",
+    "countryCode": "ESP",
+    "countryName": "Spain",
+    "countryFlag": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/spain-flag.png",
+    "circuitKey": 153,
+    "circuitShortName": "Madring",
+    "circuitType": "Temporary - Street",
+    "circuitImage": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Spain%20carbon.png",
+    "gmtOffset": "02:00:00",
+    "startDate": "2026-09-11T11:30:00.000Z",
+    "endDate": "2026-09-13T15:00:00.000Z",
+    "year": 2026,
+    "sessions": [
+      {
+        "id": "cmnjj45zm000vns1ww72c2gv0",
+        "meetingId": "cmnjj45yd000tns1waog3den4",
+        "meetingName": "Spanish Grand Prix",
+        "type": "Practice",
+        "name": "Practice 1",
+        "startTime": "2026-09-11T11:30:00.000Z"
+      },
+      {
+        "id": "cmnjj45zs000xns1wnxdruqi2",
+        "meetingId": "cmnjj45yd000tns1waog3den4",
+        "meetingName": "Spanish Grand Prix",
+        "type": "Practice",
+        "name": "Practice 2",
+        "startTime": "2026-09-11T15:00:00.000Z"
+      },
+      {
+        "id": "cmnjj45zx000zns1wmvoa1ob1",
+        "meetingId": "cmnjj45yd000tns1waog3den4",
+        "meetingName": "Spanish Grand Prix",
+        "type": "Practice",
+        "name": "Practice 3",
+        "startTime": "2026-09-12T10:30:00.000Z"
+      },
+      {
+        "id": "cmnjj46030011ns1wstvenqcl",
+        "meetingId": "cmnjj45yd000tns1waog3den4",
+        "meetingName": "Spanish Grand Prix",
+        "type": "Qualifying",
+        "name": "Qualifying",
+        "startTime": "2026-09-12T14:00:00.000Z"
+      },
+      {
+        "id": "cmnjj46080013ns1w0f6guc3q",
+        "meetingId": "cmnjj45yd000tns1waog3den4",
+        "meetingName": "Spanish Grand Prix",
+        "type": "Race",
+        "name": "Race",
+        "startTime": "2026-09-13T13:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "cmnjj460d0014ns1w39t8ig1x",
+    "meetingKey": 1295,
+    "name": "Azerbaijan Grand Prix",
+    "officialName": "FORMULA 1 QATAR AIRWAYS AZERBAIJAN GRAND PRIX 2026",
+    "location": "Baku",
+    "countryCode": "AZE",
+    "countryName": "Azerbaijan",
+    "countryFlag": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/azerbaijan-flag.png",
+    "circuitKey": 144,
+    "circuitShortName": "Baku",
+    "circuitType": "Temporary - Street",
+    "circuitImage": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Azerbaijan%20carbon.png",
+    "gmtOffset": "04:00:00",
+    "startDate": "2026-09-24T08:30:00.000Z",
+    "endDate": "2026-09-26T13:00:00.000Z",
+    "year": 2026,
+    "sessions": [
+      {
+        "id": "cmnjj461n0016ns1w1ielmeuv",
+        "meetingId": "cmnjj460d0014ns1w39t8ig1x",
+        "meetingName": "Azerbaijan Grand Prix",
+        "type": "Practice",
+        "name": "Practice 1",
+        "startTime": "2026-09-24T08:30:00.000Z"
+      },
+      {
+        "id": "cmnjj461t0018ns1wr7lr0f7b",
+        "meetingId": "cmnjj460d0014ns1w39t8ig1x",
+        "meetingName": "Azerbaijan Grand Prix",
+        "type": "Practice",
+        "name": "Practice 2",
+        "startTime": "2026-09-24T12:00:00.000Z"
+      },
+      {
+        "id": "cmnjj461y001ans1wj451wwoo",
+        "meetingId": "cmnjj460d0014ns1w39t8ig1x",
+        "meetingName": "Azerbaijan Grand Prix",
+        "type": "Practice",
+        "name": "Practice 3",
+        "startTime": "2026-09-25T08:30:00.000Z"
+      },
+      {
+        "id": "cmnjj4623001cns1woz9ykih9",
+        "meetingId": "cmnjj460d0014ns1w39t8ig1x",
+        "meetingName": "Azerbaijan Grand Prix",
+        "type": "Qualifying",
+        "name": "Qualifying",
+        "startTime": "2026-09-25T12:00:00.000Z"
+      },
+      {
+        "id": "cmnjj4629001ens1wo51ic01e",
+        "meetingId": "cmnjj460d0014ns1w39t8ig1x",
+        "meetingName": "Azerbaijan Grand Prix",
+        "type": "Race",
+        "name": "Race",
+        "startTime": "2026-09-26T11:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "cmnjj462f001fns1w7hf0q9f4",
+    "meetingKey": 1296,
+    "name": "Singapore Grand Prix",
+    "officialName": "FORMULA 1 SINGAPORE AIRLINES SINGAPORE GRAND PRIX 2026",
+    "location": "Marina Bay",
+    "countryCode": "SGP",
+    "countryName": "Singapore",
+    "countryFlag": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/singapore-flag.png",
+    "circuitKey": 61,
+    "circuitShortName": "Singapore",
+    "circuitType": "Temporary - Street",
+    "circuitImage": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Singapore%20carbon.png",
+    "gmtOffset": "08:00:00",
+    "startDate": "2026-10-09T08:30:00.000Z",
+    "endDate": "2026-10-11T14:00:00.000Z",
+    "year": 2026,
+    "sessions": [
+      {
+        "id": "cmnjj463n001hns1wfeiln6g1",
+        "meetingId": "cmnjj462f001fns1w7hf0q9f4",
+        "meetingName": "Singapore Grand Prix",
+        "type": "Practice",
+        "name": "Practice 1",
+        "startTime": "2026-10-09T08:30:00.000Z"
+      },
+      {
+        "id": "cmnjj463t001jns1wiqaenpjn",
+        "meetingId": "cmnjj462f001fns1w7hf0q9f4",
+        "meetingName": "Singapore Grand Prix",
+        "type": "Qualifying",
+        "name": "Sprint Qualifying",
+        "startTime": "2026-10-09T12:30:00.000Z"
+      },
+      {
+        "id": "cmnjj4644001nns1wwdpbgsuj",
+        "meetingId": "cmnjj462f001fns1w7hf0q9f4",
+        "meetingName": "Singapore Grand Prix",
+        "type": "Qualifying",
+        "name": "Qualifying",
+        "startTime": "2026-10-10T13:00:00.000Z"
+      },
+      {
+        "id": "cmnjj463y001lns1wjzifntul",
+        "meetingId": "cmnjj462f001fns1w7hf0q9f4",
+        "meetingName": "Singapore Grand Prix",
+        "type": "Race",
+        "name": "Sprint",
+        "startTime": "2026-10-10T09:00:00.000Z"
+      },
+      {
+        "id": "cmnjj4648001pns1wbd77oazs",
+        "meetingId": "cmnjj462f001fns1w7hf0q9f4",
+        "meetingName": "Singapore Grand Prix",
+        "type": "Race",
+        "name": "Race",
+        "startTime": "2026-10-11T12:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "cmnjj464e001qns1w4bwumhpc",
+    "meetingKey": 1297,
+    "name": "United States Grand Prix",
+    "officialName": "FORMULA 1 MSC CRUISES UNITED STATES GRAND PRIX 2026",
+    "location": "Austin",
+    "countryCode": "USA",
+    "countryName": "United States",
+    "countryFlag": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/united-states-flag.png",
+    "circuitKey": 9,
+    "circuitShortName": "Austin",
+    "circuitType": "Permanent",
+    "circuitImage": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/United States%20carbon.png",
+    "gmtOffset": "-05:00:00",
+    "startDate": "2026-10-23T17:30:00.000Z",
+    "endDate": "2026-10-25T22:00:00.000Z",
+    "year": 2026,
+    "sessions": [
+      {
+        "id": "cmnjk0p8y005y5euyjt3tldas",
+        "meetingId": "cmnjj464e001qns1w4bwumhpc",
+        "meetingName": "United States Grand Prix",
+        "type": "Practice",
+        "name": "Practice 1",
+        "startTime": "2026-10-23T17:30:00.000Z"
+      },
+      {
+        "id": "cmnjk0p9500605euynqtvovcy",
+        "meetingId": "cmnjj464e001qns1w4bwumhpc",
+        "meetingName": "United States Grand Prix",
+        "type": "Practice",
+        "name": "Practice 2",
+        "startTime": "2026-10-23T21:00:00.000Z"
+      },
+      {
+        "id": "cmnjk0p9b00625euya3jpn2ap",
+        "meetingId": "cmnjj464e001qns1w4bwumhpc",
+        "meetingName": "United States Grand Prix",
+        "type": "Practice",
+        "name": "Practice 3",
+        "startTime": "2026-10-24T17:30:00.000Z"
+      },
+      {
+        "id": "cmnjk0p9g00645euykjbe8grh",
+        "meetingId": "cmnjj464e001qns1w4bwumhpc",
+        "meetingName": "United States Grand Prix",
+        "type": "Qualifying",
+        "name": "Qualifying",
+        "startTime": "2026-10-24T21:00:00.000Z"
+      },
+      {
+        "id": "cmnjk0p9m00665euyo6d3tyfb",
+        "meetingId": "cmnjj464e001qns1w4bwumhpc",
+        "meetingName": "United States Grand Prix",
+        "type": "Race",
+        "name": "Race",
+        "startTime": "2026-10-25T20:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "cmnjj465k001rns1w76l8zzso",
+    "meetingKey": 1298,
+    "name": "Mexico City Grand Prix",
+    "officialName": "FORMULA 1 GRAN PREMIO DE LA CIUDAD DE MÉXICO 2026",
+    "location": "Mexico City",
+    "countryCode": "MEX",
+    "countryName": "Mexico",
+    "countryFlag": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/mexico-flag.png",
+    "circuitKey": 65,
+    "circuitShortName": "Mexico City",
+    "circuitType": "Permanent",
+    "circuitImage": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Mexico%20carbon.png",
+    "gmtOffset": "-06:00:00",
+    "startDate": "2026-10-30T18:30:00.000Z",
+    "endDate": "2026-11-01T22:00:00.000Z",
+    "year": 2026,
+    "sessions": [
+      {
+        "id": "cmnjj9kg3000zcbcyrpexvs7n",
+        "meetingId": "cmnjj465k001rns1w76l8zzso",
+        "meetingName": "Mexico City Grand Prix",
+        "type": "Practice",
+        "name": "Practice 1",
+        "startTime": "2026-10-30T18:30:00.000Z"
+      },
+      {
+        "id": "cmnjj9kg80011cbcywjp01d84",
+        "meetingId": "cmnjj465k001rns1w76l8zzso",
+        "meetingName": "Mexico City Grand Prix",
+        "type": "Practice",
+        "name": "Practice 2",
+        "startTime": "2026-10-30T22:00:00.000Z"
+      },
+      {
+        "id": "cmnjj9kgf0013cbcyccwnk7zp",
+        "meetingId": "cmnjj465k001rns1w76l8zzso",
+        "meetingName": "Mexico City Grand Prix",
+        "type": "Practice",
+        "name": "Practice 3",
+        "startTime": "2026-10-31T17:30:00.000Z"
+      },
+      {
+        "id": "cmnjj9kgk0015cbcyf4mriwjw",
+        "meetingId": "cmnjj465k001rns1w76l8zzso",
+        "meetingName": "Mexico City Grand Prix",
+        "type": "Qualifying",
+        "name": "Qualifying",
+        "startTime": "2026-10-31T21:00:00.000Z"
+      },
+      {
+        "id": "cmnjj9kgq0017cbcy358yy5fj",
+        "meetingId": "cmnjj465k001rns1w76l8zzso",
+        "meetingName": "Mexico City Grand Prix",
+        "type": "Race",
+        "name": "Race",
+        "startTime": "2026-11-01T20:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "cmnjj466r001sns1wcnp5opu3",
+    "meetingKey": 1299,
+    "name": "São Paulo Grand Prix",
+    "officialName": "FORMULA 1 MSC CRUISES GRANDE PRÊMIO DE SÃO PAULO 2026",
+    "location": "São Paulo",
+    "countryCode": "BRA",
+    "countryName": "Brazil",
+    "countryFlag": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/brazil-flag.png",
+    "circuitKey": 14,
+    "circuitShortName": "Interlagos",
+    "circuitType": "Permanent",
+    "circuitImage": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Brazil%20carbon.png",
+    "gmtOffset": "-03:00:00",
+    "startDate": "2026-11-06T15:30:00.000Z",
+    "endDate": "2026-11-08T19:00:00.000Z",
+    "year": 2026,
+    "sessions": [
+      {
+        "id": "cmnjj9khz001acbcyg4qzodti",
+        "meetingId": "cmnjj466r001sns1wcnp5opu3",
+        "meetingName": "São Paulo Grand Prix",
+        "type": "Practice",
+        "name": "Practice 1",
+        "startTime": "2026-11-06T15:30:00.000Z"
+      },
+      {
+        "id": "cmnjj9ki5001ccbcyygvkkq82",
+        "meetingId": "cmnjj466r001sns1wcnp5opu3",
+        "meetingName": "São Paulo Grand Prix",
+        "type": "Practice",
+        "name": "Practice 2",
+        "startTime": "2026-11-06T19:00:00.000Z"
+      },
+      {
+        "id": "cmnjj9kib001ecbcykmqje9dd",
+        "meetingId": "cmnjj466r001sns1wcnp5opu3",
+        "meetingName": "São Paulo Grand Prix",
+        "type": "Practice",
+        "name": "Practice 3",
+        "startTime": "2026-11-07T14:30:00.000Z"
+      },
+      {
+        "id": "cmnjj9kih001gcbcy415w4zb4",
+        "meetingId": "cmnjj466r001sns1wcnp5opu3",
+        "meetingName": "São Paulo Grand Prix",
+        "type": "Qualifying",
+        "name": "Qualifying",
+        "startTime": "2026-11-07T18:00:00.000Z"
+      },
+      {
+        "id": "cmnjj9kil001icbcy6m7hsh0y",
+        "meetingId": "cmnjj466r001sns1wcnp5opu3",
+        "meetingName": "São Paulo Grand Prix",
+        "type": "Race",
+        "name": "Race",
+        "startTime": "2026-11-08T17:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "cmnjj467x001tns1wt54zfs9x",
+    "meetingKey": 1300,
+    "name": "Las Vegas Grand Prix",
+    "officialName": "FORMULA 1 HEINEKEN LAS VEGAS GRAND PRIX 2026",
+    "location": "Las Vegas",
+    "countryCode": "USA",
+    "countryName": "United States",
+    "countryFlag": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/united-states-flag.png",
+    "circuitKey": 152,
+    "circuitShortName": "Las Vegas",
+    "circuitType": "Temporary - Street",
+    "circuitImage": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Las Vegas%20carbon.png",
+    "gmtOffset": "-08:00:00",
+    "startDate": "2026-11-20T00:30:00.000Z",
+    "endDate": "2026-11-22T06:00:00.000Z",
+    "year": 2026,
+    "sessions": [
+      {
+        "id": "cmnjk1csz006v5euy3a2qwm79",
+        "meetingId": "cmnjj467x001tns1wt54zfs9x",
+        "meetingName": "Las Vegas Grand Prix",
+        "type": "Practice",
+        "name": "Practice 1",
+        "startTime": "2026-11-20T00:30:00.000Z"
+      },
+      {
+        "id": "cmnjk1ct4006x5euyu5pi4uwi",
+        "meetingId": "cmnjj467x001tns1wt54zfs9x",
+        "meetingName": "Las Vegas Grand Prix",
+        "type": "Practice",
+        "name": "Practice 2",
+        "startTime": "2026-11-20T04:00:00.000Z"
+      },
+      {
+        "id": "cmnjk1cta006z5euyr2fkxj5k",
+        "meetingId": "cmnjj467x001tns1wt54zfs9x",
+        "meetingName": "Las Vegas Grand Prix",
+        "type": "Practice",
+        "name": "Practice 3",
+        "startTime": "2026-11-21T00:30:00.000Z"
+      },
+      {
+        "id": "cmnjk1ctf00715euyc0dnl97p",
+        "meetingId": "cmnjj467x001tns1wt54zfs9x",
+        "meetingName": "Las Vegas Grand Prix",
+        "type": "Qualifying",
+        "name": "Qualifying",
+        "startTime": "2026-11-21T04:00:00.000Z"
+      },
+      {
+        "id": "cmnjk1ctl00735euyln9rks66",
+        "meetingId": "cmnjj467x001tns1wt54zfs9x",
+        "meetingName": "Las Vegas Grand Prix",
+        "type": "Race",
+        "name": "Race",
+        "startTime": "2026-11-22T04:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "cmnjj4693001uns1w020srhes",
+    "meetingKey": 1301,
+    "name": "Qatar Grand Prix",
+    "officialName": "FORMULA 1 QATAR AIRWAYS QATAR GRAND PRIX 2026",
+    "location": "Lusail",
+    "countryCode": "QAT",
+    "countryName": "Qatar",
+    "countryFlag": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/qatar-flag.png",
+    "circuitKey": 150,
+    "circuitShortName": "Lusail",
+    "circuitType": "Permanent",
+    "circuitImage": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Qatar%20carbon.png",
+    "gmtOffset": "03:00:00",
+    "startDate": "2026-11-27T13:30:00.000Z",
+    "endDate": "2026-11-29T18:00:00.000Z",
+    "year": 2026,
+    "sessions": [
+      {
+        "id": "cmnjk1ko300765euy0sb61ze2",
+        "meetingId": "cmnjj4693001uns1w020srhes",
+        "meetingName": "Qatar Grand Prix",
+        "type": "Practice",
+        "name": "Practice 1",
+        "startTime": "2026-11-27T13:30:00.000Z"
+      },
+      {
+        "id": "cmnjk1ko800785euy2bxe43i2",
+        "meetingId": "cmnjj4693001uns1w020srhes",
+        "meetingName": "Qatar Grand Prix",
+        "type": "Practice",
+        "name": "Practice 2",
+        "startTime": "2026-11-27T17:00:00.000Z"
+      },
+      {
+        "id": "cmnjk1koe007a5euyxqtjdnjq",
+        "meetingId": "cmnjj4693001uns1w020srhes",
+        "meetingName": "Qatar Grand Prix",
+        "type": "Practice",
+        "name": "Practice 3",
+        "startTime": "2026-11-28T14:30:00.000Z"
+      },
+      {
+        "id": "cmnjk1kok007c5euym3c3095a",
+        "meetingId": "cmnjj4693001uns1w020srhes",
+        "meetingName": "Qatar Grand Prix",
+        "type": "Qualifying",
+        "name": "Qualifying",
+        "startTime": "2026-11-28T18:00:00.000Z"
+      },
+      {
+        "id": "cmnjk1koq007e5euy6uvqz3dq",
+        "meetingId": "cmnjj4693001uns1w020srhes",
+        "meetingName": "Qatar Grand Prix",
+        "type": "Race",
+        "name": "Race",
+        "startTime": "2026-11-29T16:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "cmnjj46aa001vns1wq609g3qs",
+    "meetingKey": 1302,
+    "name": "Abu Dhabi Grand Prix",
+    "officialName": "FORMULA 1 ETIHAD AIRWAYS ABU DHABI GRAND PRIX 2026",
+    "location": "Yas Marina",
+    "countryCode": "UAE",
+    "countryName": "United Arab Emirates",
+    "countryFlag": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Flags%2016x9/united-arab-emirates-flag.png",
+    "circuitKey": 70,
+    "circuitShortName": "Yas Marina Circuit",
+    "circuitType": "Permanent",
+    "circuitImage": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Abu Dhabi%20carbon.png",
+    "gmtOffset": "04:00:00",
+    "startDate": "2026-12-04T09:30:00.000Z",
+    "endDate": "2026-12-06T15:00:00.000Z",
+    "year": 2026,
+    "sessions": [
+      {
+        "id": "cmnjk1sj4007h5euyhorqv3ef",
+        "meetingId": "cmnjj46aa001vns1wq609g3qs",
+        "meetingName": "Abu Dhabi Grand Prix",
+        "type": "Practice",
+        "name": "Practice 1",
+        "startTime": "2026-12-04T09:30:00.000Z"
+      },
+      {
+        "id": "cmnjk1sja007j5euysvijmnqg",
+        "meetingId": "cmnjj46aa001vns1wq609g3qs",
+        "meetingName": "Abu Dhabi Grand Prix",
+        "type": "Practice",
+        "name": "Practice 2",
+        "startTime": "2026-12-04T13:00:00.000Z"
+      },
+      {
+        "id": "cmnjk1sjg007l5euyyappc4ms",
+        "meetingId": "cmnjj46aa001vns1wq609g3qs",
+        "meetingName": "Abu Dhabi Grand Prix",
+        "type": "Practice",
+        "name": "Practice 3",
+        "startTime": "2026-12-05T10:30:00.000Z"
+      },
+      {
+        "id": "cmnjk1sjl007n5euyucv8emqn",
+        "meetingId": "cmnjj46aa001vns1wq609g3qs",
+        "meetingName": "Abu Dhabi Grand Prix",
+        "type": "Qualifying",
+        "name": "Qualifying",
+        "startTime": "2026-12-05T14:00:00.000Z"
+      },
+      {
+        "id": "cmnjk1sjr007p5euyhygayhir",
+        "meetingId": "cmnjj46aa001vns1wq609g3qs",
+        "meetingName": "Abu Dhabi Grand Prix",
+        "type": "Race",
+        "name": "Race",
+        "startTime": "2026-12-06T13:00:00.000Z"
+      }
+    ]
+  }
+]

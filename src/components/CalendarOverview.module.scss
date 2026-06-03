@@ -1,0 +1,185 @@
+@use "../assets/styles/variables" as vars;
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: vars.$pageForeground;
+}
+
+.title {
+  margin-bottom: 24px;
+  font-size: clamp(29px, 4vw, 51px);
+}
+
+.linkButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 8px 16px;
+  border: 1px solid vars.$surfaceBorder;
+  border-radius: vars.$radiusPill;
+  background: rgba(255, 252, 246, 0.92);
+  color: vars.$pageForeground;
+  box-shadow: vars.$shadow;
+  white-space: nowrap;
+  transition: transform 160ms ease;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+.calendarOverview {
+  display: grid;
+  gap: 28px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.7fr);
+  gap: 24px;
+  padding: 32px;
+  border: 1px solid vars.$heroBorder;
+  border-radius: 32px;
+  background:
+    linear-gradient(135deg, vars.$heroStart, vars.$heroEnd),
+    linear-gradient(180deg, vars.$whiteOverlay, transparent);
+  color: vars.$heroText;
+  box-shadow: 0 24px 70px vars.$heroGlow;
+
+  .eyebrow {
+    color: vars.$heroText;
+  }
+}
+
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.heroTitle {
+  font-size: clamp(26px, 6vw, 64px);
+  line-height: 61px;
+}
+
+.heroMeta {
+  font-size: 16px;
+  opacity: 0.82;
+}
+
+.heroDescription {
+  line-height: 27px;
+  opacity: 0.84;
+}
+
+.loadingBlock {
+  width: fit-content;
+  padding: 14px 18px;
+  border-radius: 18px;
+  background: vars.$surfaceLoading;
+  line-height: 26px;
+}
+
+.flag {
+  width: 74px;
+  height: 50px;
+  object-fit: cover;
+  border: 1px solid vars.$heroFlagBorder;
+  border-radius: 14px;
+  box-shadow: 0 10px 28px vars.$heroFlagShadow;
+}
+
+.sessionsSection,
+.racesSection,
+.archiveSection {
+  display: grid;
+  gap: 18px;
+}
+
+.sectionHeading {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sectionTitle {
+  font-size: clamp(23px, 2vw, 34px);
+}
+
+.sessionsGrid,
+.raceGrid,
+.archiveGrid {
+  display: grid;
+  gap: 18px;
+}
+
+.sessionsGrid {
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.raceGrid,
+.archiveGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.archiveToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 18px 22px;
+  border: 1px solid vars.$surfaceBorder;
+  border-radius: 22px;
+  background: rgba(255, 250, 242, 0.84);
+  color: vars.$pageForeground;
+  box-shadow: vars.$shadow;
+  cursor: pointer;
+}
+
+@media (max-width: 960px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionHeading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .raceGrid,
+  .archiveGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .topBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero {
+    padding: 24px;
+  }
+
+  .raceGrid,
+  .archiveGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .flag {
+    width: 64px;
+    height: 44px;
+  }
+}

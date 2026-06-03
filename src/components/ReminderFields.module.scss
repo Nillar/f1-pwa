@@ -1,0 +1,32 @@
+@use "../assets/styles/variables" as vars;
+
+.reminderFields {
+  display: grid;
+  gap: 10px;
+}
+
+.reminderRow {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.daySelect {
+  min-height: 42px;
+  border: 1px solid vars.$surfaceBorder;
+  border-radius: 12px;
+  background: vars.$surfaceWhiteSoft;
+  padding: 0 12px;
+  color: vars.$pageForeground;
+}
+
+.addButton {
+  justify-self: start;
+}
+
+@media (max-width: 520px) {
+  .reminderRow {
+    grid-template-columns: 1fr;
+  }
+}

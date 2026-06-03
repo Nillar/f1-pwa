@@ -1,0 +1,20 @@
+@use "../assets/styles/variables" as vars;
+
+.siteShell {
+  min-height: 100vh;
+  margin: 0 auto;
+  max-width: vars.$contentWidth;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.siteMain {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+@media (max-width: 800px) {
+  .siteShell {
+    padding: 16px;
+  }
+}

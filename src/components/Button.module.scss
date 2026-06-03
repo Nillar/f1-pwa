@@ -1,0 +1,36 @@
+@use "../assets/styles/variables" as vars;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: vars.$radiusPill;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: default;
+    transform: none;
+  }
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+  }
+}
+
+.primary {
+  border: 0;
+  background: vars.$accent;
+  color: #fff8f2;
+  box-shadow: vars.$shadowButton;
+}
+
+.secondary {
+  border: 1px solid vars.$surfaceBorder;
+  background: vars.$surfaceStrong;
+  color: vars.$pageForeground;
+  box-shadow: none;
+}

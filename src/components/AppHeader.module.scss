@@ -1,0 +1,80 @@
+@use "../assets/styles/variables" as vars;
+
+.siteHeader {
+  position: sticky;
+  top: 16px;
+  z-index: 20;
+  max-width: vars.$contentWidth;
+  margin: 0 auto 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 22px;
+  border: 1px solid vars.$surfaceBorder;
+  border-radius: vars.$radiusPill;
+  background: vars.$surfaceHero;
+  backdrop-filter: blur(16px);
+  box-shadow: vars.$shadow;
+}
+
+.siteBrand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.siteBrandEyebrow {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: vars.$eyebrowText;
+}
+
+.siteBrandTitle {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.siteNav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.siteNavLink {
+  padding: 10px 16px;
+  border-radius: vars.$radiusPill;
+  color: vars.$textSoft;
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+
+  &:hover {
+    background: vars.$surfaceWhiteHover;
+    color: vars.$pageForeground;
+    transform: translateY(-1px);
+  }
+}
+
+.siteNavLinkActive {
+  background: vars.$accent;
+  color: #fff8f2;
+  box-shadow: vars.$shadowActive;
+}
+
+@media (max-width: 800px) {
+  .siteHeader {
+    position: static;
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 28px;
+  }
+
+  .siteNav {
+    width: 100%;
+  }
+
+  .siteNavLink {
+    flex: 1 1 0;
+    text-align: center;
+  }
+}

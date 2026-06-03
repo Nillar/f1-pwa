@@ -1,0 +1,59 @@
+@use "../assets/styles/variables" as vars;
+
+.sessionCard {
+  display: grid;
+  gap: 14px;
+  padding: 20px;
+  border: 1px solid vars.$surfaceBorder;
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 253, 248, 0.96), rgba(247, 240, 230, 0.92));
+  box-shadow: vars.$shadow;
+}
+
+.header {
+  display: grid;
+  gap: 6px;
+}
+
+.label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(27, 27, 27, 0.54);
+}
+
+.title {
+  font-size: 20px;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    border-radius: 16px;
+    background: vars.$surfaceAccentSoft;
+    font-size: 18px;
+    font-weight: 700;
+    color: vars.$accent;
+  }
+}
+
+.completeBadge {
+  display: inline-flex;
+  width: fit-content;
+  padding: 8px 12px;
+  border-radius: vars.$radiusPill;
+  background: vars.$surfaceSuccess;
+  color: vars.$successText;
+}
+
+.time {
+  color: vars.$textSoft;
+}

@@ -1,0 +1,110 @@
+@use "../assets/styles/variables" as vars;
+
+.raceCard {
+  display: grid;
+  gap: 16px;
+  padding: 22px;
+  border: 1px solid vars.$surfaceBorder;
+  border-radius: 26px;
+  background: vars.$surfaceWarm;
+  box-shadow: vars.$shadow;
+}
+
+.heroCard {
+  background: rgba(255, 246, 239, 0.16);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: none;
+}
+
+.archiveCard {
+  opacity: 0.88;
+}
+
+.header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.country {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: vars.$textFaint;
+}
+
+.title,
+.heroTitle {
+  margin-top: 6px;
+  line-height: 1.05;
+}
+
+.title {
+  font-size: 23px;
+}
+
+.heroTitle {
+  font-size: clamp(29px, 3vw, 40px);
+  color: inherit;
+}
+
+.flag {
+  width: 56px;
+  height: 38px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid vars.$flagBorder;
+}
+
+.meta,
+.raceTime {
+  color: vars.$textSoft;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+  gap: 10px;
+}
+
+.countdownUnit {
+  display: grid;
+  gap: 4px;
+  padding: 14px 12px;
+  border-radius: 18px;
+  background: vars.$surfaceWhiteSoft;
+  text-align: center;
+
+  strong {
+    font-size: 25px;
+    line-height: 1;
+  }
+
+  span {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(27, 27, 27, 0.58);
+  }
+}
+
+.heroCard .country,
+.heroCard .meta,
+.heroCard .raceTime,
+.heroCard .countdownUnit span {
+  color: vars.$heroTextSoft;
+}
+
+.heroCard .countdownUnit {
+  background: vars.$surfaceWarmSoft;
+}
+
+.pastState {
+  display: inline-flex;
+  width: fit-content;
+  padding: 10px 14px;
+  border-radius: vars.$radiusPill;
+  background: vars.$surfaceArchive;
+  color: vars.$textSoft;
+}

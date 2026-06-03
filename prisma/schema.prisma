@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                     String                  @id @default(cuid())
+  clientToken            String                  @unique
+  timeZone               String                  @default("UTC")
+  createdAt              DateTime                @default(now())
+  updatedAt              DateTime                @updatedAt
+
+  subscriptions          PushSubscription[]
+  sessionPreferences     SessionPreference[]
+  racePreferenceSettings RacePreferenceSetting[]
+}
+
+model PushSubscription {
+  id        String   @id @default(cuid())
+  userId    String
+  endpoint  String   @unique
+  p256dh    String
+  auth      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user      User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sentNotifications SentNotification[]
+}
+
+model SessionPreference {
+  id         String          @id @default(cuid())
+  userId     String
+  scope      String
+  meetingId  String          @default("")
+  sessionType String
+  createdAt  DateTime        @default(now())
+  updatedAt  DateTime        @updatedAt
+
+  user       User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  reminders  Reminder[]
+
+  @@unique([userId, scope, meetingId, sessionType], name: "user_scope_meeting_session")
+}
+
+model Reminder {
+  id                  String            @id @default(cuid())
+  sessionPreferenceId String
+  minutesBefore       Int
+  createdAt           DateTime          @default(now())
+
+  sessionPreference   SessionPreference @relation(fields: [sessionPreferenceId], references: [id], onDelete: Cascade)
+
+  @@unique([sessionPreferenceId, minutesBefore], name: "preference_minutes_unique")
+}
+
+model RacePreferenceSetting {
+  id                   String   @id @default(cuid())
+  userId               String
+  meetingId            String
+  notificationsEnabled Boolean  @default(true)
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, meetingId], name: "user_meeting_setting_unique")
+}
+
+model SentNotification {
+  id                 String   @id @default(cuid())
+  pushSubscriptionId String
+  meetingId          String
+  sessionType        String
+  sessionStartTime   DateTime
+  minutesBefore      Int
+  sentAt             DateTime @default(now())
+
+  pushSubscription   PushSubscription @relation(fields: [pushSubscriptionId], references: [id], onDelete: Cascade)
+
+  @@unique([pushSubscriptionId, meetingId, sessionType, sessionStartTime, minutesBefore], name: "subscription_session_reminder_unique")
+}

@@ -1,0 +1,86 @@
+@use "../assets/styles/variables" as vars;
+
+.notificationSection {
+  border: 1px solid vars.$heroBorder;
+  border-radius: vars.$radiusXl;
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.6), transparent 26%),
+    linear-gradient(180deg, vars.$surfaceStrong 0%, vars.$surfaceWarm 100%);
+  box-shadow: 0 20px 70px rgba(68, 34, 20, 0.14);
+  backdrop-filter: blur(10px);
+  padding: 28px;
+}
+
+.headerRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+}
+
+.content {
+  display: grid;
+  gap: 14px;
+}
+
+.statusBadge {
+  width: fit-content;
+  border: 1px solid rgba(158, 37, 25, 0.16);
+  border-radius: vars.$radiusPill;
+  background: rgba(219, 63, 47, 0.08);
+  color: vars.$accent;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  padding: 8px 12px;
+}
+
+.title {
+  font-size: clamp(26px, 2vw, 35px);
+}
+
+.copy {
+  max-width: 640px;
+  line-height: 26px;
+  color: vars.$textSoft;
+}
+
+.helperText {
+  color: vars.$textMuted;
+  text-align: right;
+}
+
+.testMessage {
+  max-width: 280px;
+  color: vars.$textSoft;
+  line-height: 1.6;
+  text-align: right;
+}
+
+.actions {
+  display: grid;
+  justify-items: end;
+  gap: 10px;
+  min-width: 240px;
+}
+
+@media (max-width: 720px) {
+  .headerRow {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    justify-items: start;
+    min-width: 0;
+  }
+
+  .helperText {
+    text-align: left;
+  }
+
+  .testMessage {
+    max-width: none;
+    text-align: left;
+  }
+}
