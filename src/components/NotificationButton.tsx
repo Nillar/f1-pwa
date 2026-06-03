@@ -133,7 +133,12 @@ export default function NotificationButton({
             setNotificationState("enabled");
         } catch (error) {
             console.error("Failed to enable notifications", error);
-            alert("Could not enable notifications. Check the console/server logs.");
+            const isAbortError = error instanceof Error && error.name === "AbortError";
+            alert(
+                isAbortError
+                    ? "Could not connect to push service. If you're using Brave, try disabling Shields for this site (lion icon in the address bar)."
+                    : "Could not enable notifications. Check the console for details."
+            );
         } finally {
             setIsBusy(false);
         }

@@ -11,7 +11,7 @@ import {formatHeroDate, formatWeekendRange} from "@/utils/formatTimes";
 
 export function CalendarOverview() {
     const [isHydrated, setIsHydrated] = useState(false);
-    const [now, setNow] = useState(() => Date.now());
+    const [now, setNow] = useState(0);
     const [showPassedRaces, setShowPassedRaces] = useState(false);
     const meetings = getCalendarMeetings();
 
