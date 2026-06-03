@@ -118,7 +118,7 @@ export default function NotificationButton({
             const existingSubscription = await registration.pushManager.getSubscription();
             const vapidPublicKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY;
 
-            if (!existingSubscription && !vapidPublicKey) {
+            if (!vapidPublicKey) {
                 throw new Error("Missing NEXT_PUBLIC_VAPID_PUBLIC_KEY");
             }
 
