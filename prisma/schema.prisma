@@ -8,15 +8,42 @@ datasource db {
 }
 
 model User {
-  id                     String                  @id @default(cuid())
-  clientToken            String                  @unique
-  timeZone               String                  @default("UTC")
-  createdAt              DateTime                @default(now())
-  updatedAt              DateTime                @updatedAt
+  id        String   @id @default(cuid())
+  email     String   @unique
+  timeZone  String   @default("UTC")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
+  sessions               Session[]
   subscriptions          PushSubscription[]
   sessionPreferences     SessionPreference[]
   racePreferenceSettings RacePreferenceSetting[]
+  notificationChannel    NotificationChannel?
+  emailNotifications     EmailNotification[]
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+
+model VerificationToken {
+  id        String   @id @default(cuid())
+  token     String   @unique @default(cuid())
+  email     String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+
+model NotificationChannel {
+  id           String  @id @default(cuid())
+  userId       String  @unique
+  user         User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  pushEnabled  Boolean @default(true)
+  emailEnabled Boolean @default(false)
 }
 
 model PushSubscription {
@@ -28,21 +55,21 @@ model PushSubscription {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  user      User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user              User               @relation(fields: [userId], references: [id], onDelete: Cascade)
   sentNotifications SentNotification[]
 }
 
 model SessionPreference {
-  id         String          @id @default(cuid())
-  userId     String
-  scope      String
-  meetingId  String          @default("")
+  id          String   @id @default(cuid())
+  userId      String
+  scope       String
+  meetingId   String   @default("")
   sessionType String
-  createdAt  DateTime        @default(now())
-  updatedAt  DateTime        @updatedAt
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
-  user       User            @relation(fields: [userId], references: [id], onDelete: Cascade)
-  reminders  Reminder[]
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  reminders Reminder[]
 
   @@unique([userId, scope, meetingId, sessionType], name: "user_scope_meeting_session")
 }
@@ -53,7 +80,7 @@ model Reminder {
   minutesBefore       Int
   createdAt           DateTime          @default(now())
 
-  sessionPreference   SessionPreference @relation(fields: [sessionPreferenceId], references: [id], onDelete: Cascade)
+  sessionPreference SessionPreference @relation(fields: [sessionPreferenceId], references: [id], onDelete: Cascade)
 
   @@unique([sessionPreferenceId, minutesBefore], name: "preference_minutes_unique")
 }
@@ -66,7 +93,7 @@ model RacePreferenceSetting {
   createdAt            DateTime @default(now())
   updatedAt            DateTime @updatedAt
 
-  user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, meetingId], name: "user_meeting_setting_unique")
 }
@@ -80,7 +107,20 @@ model SentNotification {
   minutesBefore      Int
   sentAt             DateTime @default(now())
 
-  pushSubscription   PushSubscription @relation(fields: [pushSubscriptionId], references: [id], onDelete: Cascade)
+  pushSubscription PushSubscription @relation(fields: [pushSubscriptionId], references: [id], onDelete: Cascade)
 
   @@unique([pushSubscriptionId, meetingId, sessionType, sessionStartTime, minutesBefore], name: "subscription_session_reminder_unique")
+}
+
+model EmailNotification {
+  id               String   @id @default(cuid())
+  userId           String
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  meetingId        String
+  sessionType      String
+  sessionStartTime DateTime
+  minutesBefore    Int
+  sentAt           DateTime @default(now())
+
+  @@unique([userId, meetingId, sessionType, sessionStartTime, minutesBefore], name: "user_email_session_reminder_unique")
 }

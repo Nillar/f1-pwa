@@ -1,6 +1,6 @@
+import { getSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { sendPushNotification } from "@/lib/push";
-import { findUserByToken } from "@/lib/users";
 
 export const runtime = "nodejs";
 
@@ -17,47 +17,38 @@ if (!globalForTestNotifications.scheduledTestNotifications) {
     globalForTestNotifications.scheduledTestNotifications = scheduledTestNotifications;
 }
 
+type TestNotificationResponse = {
+    error?: string;
+    mode?: "immediate" | "scheduled";
+    scheduledFor?: string;
+};
+
 export async function POST(req: Request) {
     try {
+        const user = await getSession();
+        if (!user) {
+            return Response.json({ error: "Unauthorized" }, { status: 401 });
+        }
+
         const body = await req.json();
-        const userToken =
-            typeof body?.userToken === "string" ? body.userToken.trim() : "";
         const delaySeconds =
             typeof body?.delaySeconds === "number" && body.delaySeconds >= 0
                 ? body.delaySeconds
                 : TEST_NOTIFICATION_DELAY_MS / 1000;
 
-        if (!userToken) {
-            return Response.json({ error: "userToken is required" }, { status: 400 });
-        }
-
-        const user = await findUserByToken(userToken);
-
-        if (!user) {
-            return Response.json(
-                { error: "Enable notifications first" },
-                { status: 400 }
-            );
-        }
-
         const subscription = await prisma.pushSubscription.findFirst({
-            where: {
-                userId: user.id,
-            },
-            orderBy: {
-                updatedAt: "desc",
-            },
+            where: { userId: user.id },
+            orderBy: { updatedAt: "desc" },
         });
 
         if (!subscription) {
             return Response.json(
-                { error: "No push subscription found for this browser" },
+                { error: "No push subscription found. Enable push notifications first." },
                 { status: 404 }
             );
         }
 
         const existingSchedule = scheduledTestNotifications.get(subscription.id);
-
         if (existingSchedule) {
             clearTimeout(existingSchedule);
         }
@@ -77,7 +68,6 @@ export async function POST(req: Request) {
 
         if (delayMs === 0) {
             await sendPushNotification(subscription, payload);
-
             return Response.json({
                 ok: true,
                 mode: "immediate",
@@ -90,7 +80,6 @@ export async function POST(req: Request) {
                 await sendPushNotification(subscription, payload);
             } catch (error) {
                 console.error("Failed to send test notification", error);
-
                 if (
                     typeof error === "object" &&
                     error !== null &&
@@ -98,9 +87,7 @@ export async function POST(req: Request) {
                     (error.statusCode === 404 || error.statusCode === 410)
                 ) {
                     await prisma.pushSubscription.deleteMany({
-                        where: {
-                            endpoint: subscription.endpoint,
-                        },
+                        where: { endpoint: subscription.endpoint },
                     });
                 }
             } finally {
@@ -117,7 +104,6 @@ export async function POST(req: Request) {
         });
     } catch (error) {
         console.error("Failed to schedule test notification", error);
-
         return Response.json(
             {
                 error:

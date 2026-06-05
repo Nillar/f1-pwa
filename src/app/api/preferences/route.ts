@@ -7,7 +7,7 @@ import {
     type SessionPreferenceInput,
 } from "@/lib/preferences";
 import { prisma } from "@/lib/prisma";
-import { findUserByToken } from "@/lib/users";
+import { getSession } from "@/lib/auth";
 
 async function replaceSessionPreferences(
     userId: string,
@@ -17,33 +17,21 @@ async function replaceSessionPreferences(
 ) {
     await prisma.$transaction(async (tx) => {
         const existingPreferences = await tx.sessionPreference.findMany({
-            where: {
-                userId,
-                scope,
-                meetingId,
-            },
-            select: {
-                id: true,
-            },
+            where: { userId, scope, meetingId },
+            select: { id: true },
         });
 
         if (existingPreferences.length > 0) {
             await tx.reminder.deleteMany({
                 where: {
                     sessionPreferenceId: {
-                        in: existingPreferences.map((preference) => preference.id),
+                        in: existingPreferences.map((p) => p.id),
                     },
                 },
             });
         }
 
-        await tx.sessionPreference.deleteMany({
-            where: {
-                userId,
-                scope,
-                meetingId,
-            },
-        });
+        await tx.sessionPreference.deleteMany({ where: { userId, scope, meetingId } });
 
         for (const preference of preferences) {
             await tx.sessionPreference.create({
@@ -66,50 +54,18 @@ async function replaceSessionPreferences(
 async function readPreferencesPayload(userId: string) {
     const [globalPreferences, raceSettings, raceSessionPreferences] = await Promise.all([
         prisma.sessionPreference.findMany({
-            where: {
-                userId,
-                scope: "GLOBAL",
-                meetingId: "",
-            },
-            include: {
-                reminders: {
-                    orderBy: {
-                        minutesBefore: "desc",
-                    },
-                },
-            },
-            orderBy: {
-                sessionType: "asc",
-            },
+            where: { userId, scope: "GLOBAL", meetingId: "" },
+            include: { reminders: { orderBy: { minutesBefore: "desc" } } },
+            orderBy: { sessionType: "asc" },
         }),
         prisma.racePreferenceSetting.findMany({
-            where: {
-                userId,
-            },
-            orderBy: {
-                meetingId: "asc",
-            },
+            where: { userId },
+            orderBy: { meetingId: "asc" },
         }),
         prisma.sessionPreference.findMany({
-            where: {
-                userId,
-                scope: "RACE",
-            },
-            include: {
-                reminders: {
-                    orderBy: {
-                        minutesBefore: "desc",
-                    },
-                },
-            },
-            orderBy: [
-                {
-                    meetingId: "asc",
-                },
-                {
-                    sessionType: "asc",
-                },
-            ],
+            where: { userId, scope: "RACE" },
+            include: { reminders: { orderBy: { minutesBefore: "desc" } } },
+            orderBy: [{ meetingId: "asc" }, { sessionType: "asc" }],
         }),
     ]);
 
@@ -121,86 +77,48 @@ async function readPreferencesPayload(userId: string) {
         preferencesByMeetingId.set(preference.meetingId, existing);
     }
 
-    return buildPreferencesPayload(
-        globalPreferences,
-        raceSettings,
-        preferencesByMeetingId
-    );
+    return buildPreferencesPayload(globalPreferences, raceSettings, preferencesByMeetingId);
 }
 
-export async function GET(req: Request) {
-    const { searchParams } = new URL(req.url);
-    const userToken = searchParams.get("userToken");
-    const user = await findUserByToken(userToken);
-
+export async function GET() {
+    const user = await getSession();
     if (!user) {
-        return Response.json({
-            globalPreferences: [],
-            racePreferences: [],
-        });
+        return Response.json({ globalPreferences: [], racePreferences: [] });
     }
-
     return Response.json(await readPreferencesPayload(user.id));
 }
 
 export async function PUT(req: Request) {
     try {
-        const body = await req.json();
-        const userToken =
-            typeof body?.userToken === "string" ? body.userToken : null;
-        const user = await findUserByToken(userToken);
-
+        const user = await getSession();
         if (!user) {
-            return Response.json(
-                { error: "Enable notifications first" },
-                { status: 400 }
-            );
+            return Response.json({ error: "Unauthorized" }, { status: 401 });
         }
 
+        const body = await req.json();
         const preferences = normalizeSessionPreferences(body?.preferences);
 
-        await replaceSessionPreferences(
-            user.id,
-            "GLOBAL",
-            "",
-            preferences
-        );
+        await replaceSessionPreferences(user.id, "GLOBAL", "", preferences);
 
         return Response.json(await readPreferencesPayload(user.id));
     } catch (error) {
         if (error instanceof PreferencesValidationError) {
-            return Response.json(
-                { error: error.message },
-                { status: error.status }
-            );
+            return Response.json({ error: error.message }, { status: error.status });
         }
-
         console.error("Failed to save global preferences", error);
-
-        return Response.json(
-            { error: "Failed to save global preferences" },
-            { status: 500 }
-        );
+        return Response.json({ error: "Failed to save global preferences" }, { status: 500 });
     }
 }
 
 export async function POST(req: Request) {
     try {
-        const body = await req.json();
-        const userToken =
-            typeof body?.userToken === "string" ? body.userToken : null;
-        const user = await findUserByToken(userToken);
-
+        const user = await getSession();
         if (!user) {
-            return Response.json(
-                { error: "Enable notifications first" },
-                { status: 400 }
-            );
+            return Response.json({ error: "Unauthorized" }, { status: 401 });
         }
 
-        const racePreference = normalizeRacePreferenceInput(
-            body as RacePreferenceInput
-        );
+        const body = await req.json();
+        const racePreference = normalizeRacePreferenceInput(body as RacePreferenceInput);
 
         await prisma.racePreferenceSetting.upsert({
             where: {
@@ -209,9 +127,7 @@ export async function POST(req: Request) {
                     meetingId: racePreference.meetingId,
                 },
             },
-            update: {
-                notificationsEnabled: !racePreference.disableAll,
-            },
+            update: { notificationsEnabled: !racePreference.disableAll },
             create: {
                 userId: user.id,
                 meetingId: racePreference.meetingId,
@@ -229,17 +145,9 @@ export async function POST(req: Request) {
         return Response.json(await readPreferencesPayload(user.id));
     } catch (error) {
         if (error instanceof PreferencesValidationError) {
-            return Response.json(
-                { error: error.message },
-                { status: error.status }
-            );
+            return Response.json({ error: error.message }, { status: error.status });
         }
-
         console.error("Failed to save race preferences", error);
-
-        return Response.json(
-            { error: "Failed to save race preferences" },
-            { status: 500 }
-        );
+        return Response.json({ error: "Failed to save race preferences" }, { status: 500 });
     }
 }

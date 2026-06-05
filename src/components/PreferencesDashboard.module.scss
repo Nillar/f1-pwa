@@ -38,6 +38,58 @@
   filter: blur(6px);
 }
 
+.signOutLink {
+  color: vars.$textSoft;
+  font-size: 13px;
+  text-underline-offset: 3px;
+
+  &:hover {
+    color: vars.$pageForeground;
+  }
+}
+
+.channelSection {
+  display: grid;
+  gap: 12px;
+}
+
+.channelList {
+  display: grid;
+  gap: 10px;
+}
+
+.channelOption {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 20px;
+  border: 1px solid vars.$surfaceBorder;
+  border-radius: vars.$radiusLg;
+  background: vars.$surfaceStrong;
+  box-shadow: vars.$shadow;
+  cursor: pointer;
+
+  input[type="checkbox"] {
+    margin-top: 3px;
+    width: 18px;
+    height: 18px;
+    accent-color: vars.$accent;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  strong {
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  p {
+    margin: 0;
+    font-size: 13px;
+    color: vars.$textSoft;
+  }
+}
+
 .racesSection,
 .archiveSection {
   display: grid;

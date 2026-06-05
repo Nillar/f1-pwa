@@ -4,11 +4,6 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/Button";
 import styles from "./NotificationButton.module.scss";
 
-type SubscribeResponse = {
-    subscriptionId: string;
-    userToken: string;
-};
-
 type TestNotificationResponse = {
     error?: string;
     mode?: "immediate" | "scheduled";
@@ -16,11 +11,12 @@ type TestNotificationResponse = {
 };
 
 type NotificationButtonProps = {
-    onEnabledAction?: (userToken: string) => void;
+    onEnabledAction?: () => void;
     onDisabledAction?: () => void;
 };
 
 type NotificationState = "checking" | "enabled" | "disabled";
+type IOSState = "unknown" | "browser" | "standalone";
 
 function urlBase64ToUint8Array(base64String: string) {
     const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
@@ -40,6 +36,7 @@ export default function NotificationButton({
 }: NotificationButtonProps) {
     const [notificationState, setNotificationState] =
         useState<NotificationState>("checking");
+    const [iosState, setIosState] = useState<IOSState>("unknown");
     const [isBusy, setIsBusy] = useState(false);
     const [isSchedulingTest, setIsSchedulingTest] = useState(false);
     const [isShowingLocalTest, setIsShowingLocalTest] = useState(false);
@@ -48,29 +45,29 @@ export default function NotificationButton({
     const saveSubscription = async (subscription: PushSubscription) => {
         const response = await fetch("/api/subscribe", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 subscription,
                 timeZone: getBrowserTimeZone(),
-                userToken: localStorage.getItem("userToken"),
             }),
         });
 
-        const data: SubscribeResponse & { error?: string } = await response.json();
+        const data: { ok?: boolean; error?: string } = await response.json();
 
         if (!response.ok) {
             throw new Error(data.error ?? "Subscription request failed");
         }
 
-        localStorage.setItem("userToken", data.userToken);
-        onEnabledAction?.(data.userToken);
-
-        return data;
+        onEnabledAction?.();
     };
 
     useEffect(() => {
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        if (isIOS) {
+            const isStandalone = window.matchMedia("(display-mode: standalone)").matches;
+            setIosState(isStandalone ? "standalone" : "browser");
+        }
+
         const syncSubscriptionState = async () => {
             if (!("serviceWorker" in navigator)) {
                 setNotificationState("disabled");
@@ -197,21 +194,10 @@ export default function NotificationButton({
             setIsSchedulingTest(true);
             setTestNotificationMessage("");
 
-            const userToken = localStorage.getItem("userToken");
-
-            if (!userToken) {
-                throw new Error("Enable notifications first");
-            }
-
             const response = await fetch("/api/test-notification", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    delaySeconds,
-                    userToken,
-                }),
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ delaySeconds }),
             });
 
             const data: TestNotificationResponse = await response.json();
@@ -295,6 +281,25 @@ export default function NotificationButton({
             : notificationState === "enabled"
                 ? "Live"
                 : "Off";
+
+    if (iosState === "browser") {
+        return (
+            <section className={styles.notificationSection}>
+                <div className={styles.content}>
+                    <span className={styles.statusBadge}>iOS</span>
+                    <h2 className={styles.title}>Push notifications</h2>
+                    <p className={styles.copy}>
+                        Push notifications on iOS require the app installed to your home screen.
+                        In Safari, tap the Share button <strong>⎙</strong> → <strong>Add to Home Screen</strong>, then return here.
+                        Requires iOS 16.4 or later.
+                    </p>
+                    <p className={styles.copy}>
+                        Email notifications work without installing — enable them above.
+                    </p>
+                </div>
+            </section>
+        );
+    }
 
     return (
         <section className={styles.notificationSection}>

@@ -20,14 +20,19 @@ const EMPTY_PREFERENCES: PreferencesPayload = {
 };
 
 type SaveState = "idle" | "saving" | "saved";
+type ChannelState = { pushEnabled: boolean; emailEnabled: boolean };
 
 const SUCCESS_STATE_DURATION_MS = 2000;
 
-export function PreferencesDashboard() {
+type PreferencesDashboardProps = {
+    userEmail: string;
+};
+
+export function PreferencesDashboard({ userEmail }: PreferencesDashboardProps) {
     const meetings = getCalendarMeetings();
-    const [userToken, setUserToken] = useState<string | null>(null);
     const [preferences, setPreferences] = useState<PreferencesPayload>(EMPTY_PREFERENCES);
-    const [loadingPreferences, setLoadingPreferences] = useState(false);
+    const [channels, setChannels] = useState<ChannelState>({ pushEnabled: true, emailEnabled: false });
+    const [loadingPreferences, setLoadingPreferences] = useState(true);
     const [globalSaveState, setGlobalSaveState] = useState<SaveState>("idle");
     const [raceSaveStates, setRaceSaveStates] = useState<Record<string, SaveState>>({});
     const [showPassedRaces, setShowPassedRaces] = useState(false);
@@ -35,33 +40,28 @@ export function PreferencesDashboard() {
     const { upcomingMeetings, passedMeetings } = useMemo(() => {
         const now = Date.now();
         const getMeetingRaceStart = (meeting: CalendarMeeting) => {
-            const raceSession = meeting.sessions.find((session) => session.name === "Race");
+            const raceSession = meeting.sessions.find((s) => s.name === "Race");
             return raceSession
                 ? new Date(raceSession.startTime).getTime()
                 : new Date(meeting.endDate).getTime();
         };
 
         const sortedMeetings = [...meetings].sort(
-            (left, right) => getMeetingRaceStart(left) - getMeetingRaceStart(right)
+            (a, b) => getMeetingRaceStart(a) - getMeetingRaceStart(b)
         );
 
         return {
-            upcomingMeetings: sortedMeetings.filter(
-                (meeting) => getMeetingRaceStart(meeting) > now
-            ),
+            upcomingMeetings: sortedMeetings.filter((m) => getMeetingRaceStart(m) > now),
             passedMeetings: sortedMeetings
-                .filter((meeting) => getMeetingRaceStart(meeting) <= now)
+                .filter((m) => getMeetingRaceStart(m) <= now)
                 .reverse(),
         };
     }, [meetings]);
-    const totalSessions = meetings.reduce(
-        (count, meeting) => count + meeting.sessions.length,
-        0
-    );
+
+    const totalSessions = meetings.reduce((count, m) => count + m.sessions.length, 0);
     const nextMeeting =
-        meetings.find((meeting) => new Date(meeting.endDate).getTime() >= Date.now()) ??
-        meetings[0];
-    const nextRaceSession = nextMeeting.sessions.find((session) => session.name === "Race");
+        meetings.find((m) => new Date(m.endDate).getTime() >= Date.now()) ?? meetings[0];
+    const nextRaceSession = nextMeeting.sessions.find((s) => s.name === "Race");
     const nextRaceLabel = nextRaceSession
         ? new Intl.DateTimeFormat(undefined, {
               month: "short",
@@ -77,19 +77,17 @@ export function PreferencesDashboard() {
         onDone();
     };
 
-    const loadPreferences = async (token: string) => {
+    const loadPreferences = async () => {
         setLoadingPreferences(true);
-
         try {
-            const response = await fetch(
-                `/api/preferences?userToken=${encodeURIComponent(token)}`,
-                {
-                    cache: "no-store",
-                }
-            );
-
-            const data: PreferencesPayload = await response.json();
-            setPreferences(data);
+            const [prefsRes, channelsRes] = await Promise.all([
+                fetch("/api/preferences", { cache: "no-store" }),
+                fetch("/api/preferences/channels", { cache: "no-store" }),
+            ]);
+            const prefsData: PreferencesPayload = await prefsRes.json();
+            const channelsData: ChannelState = await channelsRes.json();
+            setPreferences(prefsData);
+            setChannels(channelsData);
         } catch (error) {
             console.error("Failed to load preferences", error);
         } finally {
@@ -98,51 +96,35 @@ export function PreferencesDashboard() {
     };
 
     useEffect(() => {
-        const existingToken = localStorage.getItem("userToken");
-
-        if (!existingToken) {
-            return;
-        }
-
-        setUserToken(existingToken);
-        void loadPreferences(existingToken);
+        void loadPreferences();
     }, []);
 
-    const handleNotificationsEnabled = (nextUserToken: string) => {
-        setUserToken(nextUserToken);
-        void loadPreferences(nextUserToken);
-    };
-
-    const handleNotificationsDisabled = () => {
-        setGlobalSaveState("idle");
-        setRaceSaveStates({});
+    const handleChannelToggle = async (key: keyof ChannelState, value: boolean) => {
+        const next = { ...channels, [key]: value };
+        setChannels(next);
+        try {
+            await fetch("/api/preferences/channels", {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ [key]: value }),
+            });
+        } catch (error) {
+            console.error("Failed to save channel preference", error);
+            setChannels(channels);
+        }
     };
 
     const saveGlobalPreferences = async (nextPreferences: SessionPreferenceInput[]) => {
-        if (!userToken) {
-            alert("Enable notifications first");
-            return;
-        }
-
         setGlobalSaveState("saving");
-
         try {
             const response = await fetch("/api/preferences", {
                 method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    userToken,
-                    preferences: nextPreferences,
-                }),
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ preferences: nextPreferences }),
             });
 
             const data = await response.json();
-
-            if (!response.ok) {
-                throw new Error(data.error ?? "Failed to save preferences");
-            }
+            if (!response.ok) throw new Error(data.error ?? "Failed to save preferences");
 
             setPreferences(data);
             setGlobalSaveState("saved");
@@ -155,52 +137,26 @@ export function PreferencesDashboard() {
     };
 
     const saveRacePreferences = async (nextPreferences: RacePreferenceInput) => {
-        if (!userToken) {
-            alert("Enable notifications first");
-            return;
-        }
-
-        setRaceSaveStates((currentStates) => ({
-            ...currentStates,
-            [nextPreferences.meetingId]: "saving",
-        }));
-
+        setRaceSaveStates((s) => ({ ...s, [nextPreferences.meetingId]: "saving" }));
         try {
             const response = await fetch("/api/preferences", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    userToken,
-                    ...nextPreferences,
-                }),
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(nextPreferences),
             });
 
             const data = await response.json();
-
-            if (!response.ok) {
-                throw new Error(data.error ?? "Failed to save race preferences");
-            }
+            if (!response.ok) throw new Error(data.error ?? "Failed to save race preferences");
 
             setPreferences(data);
-            setRaceSaveStates((currentStates) => ({
-                ...currentStates,
-                [nextPreferences.meetingId]: "saved",
-            }));
+            setRaceSaveStates((s) => ({ ...s, [nextPreferences.meetingId]: "saved" }));
             await showSavedState(() =>
-                setRaceSaveStates((currentStates) => ({
-                    ...currentStates,
-                    [nextPreferences.meetingId]: "idle",
-                }))
+                setRaceSaveStates((s) => ({ ...s, [nextPreferences.meetingId]: "idle" }))
             );
         } catch (error) {
             console.error(error);
             alert(error instanceof Error ? error.message : "Error saving race preferences");
-            setRaceSaveStates((currentStates) => ({
-                ...currentStates,
-                [nextPreferences.meetingId]: "idle",
-            }));
+            setRaceSaveStates((s) => ({ ...s, [nextPreferences.meetingId]: "idle" }));
         }
     };
 
@@ -211,22 +167,21 @@ export function PreferencesDashboard() {
                     <p className={styles.heroEyebrow}>Notifications Dashboard</p>
                     <h1 className={styles.title}>Manage race weekend reminders</h1>
                     <p className={styles.copy}>
-                        Configure browser push notifications for the full season, then
-                        layer race-specific overrides on top when one weekend needs extra
-                        attention.
+                        Configure notifications for the full season, then layer race-specific
+                        overrides on top when one weekend needs extra attention.
                     </p>
 
                     <div className={styles.heroMeta}>
                         <div className={styles.metaCard}>
                             <span className={styles.metaLabel}>Next weekend</span>
                             <strong className={styles.metaValue}>{nextMeeting.name}</strong>
-                            <span className={styles.metaHint}>
+                            <span className={styles.metaHint} suppressHydrationWarning>
                                 {formatWeekendRange(nextMeeting)}
                             </span>
                         </div>
                         <div className={styles.metaCard}>
                             <span className={styles.metaLabel}>Race start</span>
-                            <strong className={styles.metaValue}>{nextRaceLabel}</strong>
+                            <strong className={styles.metaValue} suppressHydrationWarning>{nextRaceLabel}</strong>
                             <span className={styles.metaHint}>{nextMeeting.location}</span>
                         </div>
                     </div>
@@ -242,16 +197,53 @@ export function PreferencesDashboard() {
                         <span className={styles.statLabel}>Schedulable sessions</span>
                     </div>
                     <p className={styles.sideCopy}>
-                        Start with a season-wide baseline, then tighten reminders only for
-                        the rounds you care about most.
+                        Signed in as <strong>{userEmail}</strong>.{" "}
+                        <a className={styles.signOutLink} href="/api/auth/logout">
+                            Sign out
+                        </a>
                     </p>
                 </aside>
             </div>
 
-            <NotificationButton
-                onDisabledAction={handleNotificationsDisabled}
-                onEnabledAction={handleNotificationsEnabled}
-            />
+            <section className={styles.channelSection}>
+                <p className={styles.eyebrow}>Delivery channels</p>
+                <h2 className={styles.sectionTitle}>How to notify you</h2>
+                <p className={styles.sectionCopy}>
+                    Push notifications work on Chrome and Android. Email works everywhere —
+                    including iOS and any browser.
+                </p>
+                <div className={styles.channelList}>
+                    <label className={styles.channelOption}>
+                        <input
+                            type="checkbox"
+                            checked={channels.pushEnabled}
+                            onChange={(e) => void handleChannelToggle("pushEnabled", e.target.checked)}
+                        />
+                        <div>
+                            <strong>Push notifications</strong>
+                            <p>Chrome, Android, iOS 16.4+ (installed PWA only)</p>
+                        </div>
+                    </label>
+                    <label className={styles.channelOption}>
+                        <input
+                            type="checkbox"
+                            checked={channels.emailEnabled}
+                            onChange={(e) => void handleChannelToggle("emailEnabled", e.target.checked)}
+                        />
+                        <div>
+                            <strong>Email</strong>
+                            <p>Works everywhere — sent to {userEmail}</p>
+                        </div>
+                    </label>
+                </div>
+            </section>
+
+            {channels.pushEnabled && (
+                <NotificationButton
+                    onDisabledAction={() => {}}
+                    onEnabledAction={() => {}}
+                />
+            )}
 
             <Preferences
                 loading={loadingPreferences}
@@ -279,7 +271,7 @@ export function PreferencesDashboard() {
                             meeting={meeting}
                             preference={
                                 preferences.racePreferences.find(
-                                    (racePreference) => racePreference.meetingId === meeting.id
+                                    (rp) => rp.meetingId === meeting.id
                                 ) ?? null
                             }
                             saveState={raceSaveStates[meeting.id] ?? "idle"}
@@ -293,7 +285,7 @@ export function PreferencesDashboard() {
                 <section className={styles.archiveSection}>
                     <button
                         className={styles.archiveToggle}
-                        onClick={() => setShowPassedRaces((current) => !current)}
+                        onClick={() => setShowPassedRaces((c) => !c)}
                         type="button"
                     >
                         <span>Passed races</span>
@@ -310,8 +302,7 @@ export function PreferencesDashboard() {
                                     meeting={meeting}
                                     preference={
                                         preferences.racePreferences.find(
-                                            (racePreference) =>
-                                                racePreference.meetingId === meeting.id
+                                            (rp) => rp.meetingId === meeting.id
                                         ) ?? null
                                     }
                                     saveState={raceSaveStates[meeting.id] ?? "idle"}

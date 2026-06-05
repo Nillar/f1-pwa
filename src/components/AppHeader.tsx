@@ -4,7 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./AppHeader.module.scss";
 
-export function AppHeader() {
+type AppHeaderProps = {
+    userEmail?: string;
+};
+
+export function AppHeader({ userEmail }: AppHeaderProps) {
     const pathname = usePathname();
     const calendarLinkClassName = [
         styles.siteNavLink,
@@ -37,6 +41,15 @@ export function AppHeader() {
                     Notifications
                 </Link>
             </nav>
+
+            {userEmail && (
+                <div className={styles.authBar}>
+                    <span className={styles.authEmail}>{userEmail}</span>
+                    <a className={styles.signOutLink} href="/api/auth/logout">
+                        Sign out
+                    </a>
+                </div>
+            )}
         </header>
     );
 }
